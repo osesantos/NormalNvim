@@ -29,7 +29,7 @@ If you are new here don't forget to [check the wiki](https://github.com/NormalNv
 
 ## How to install
 
-:> [!WARNING]
+⚠️ **WARNING**
 > please, use the manual installation if you are reinstalling this distro. The installer will create a default config that will overwrite your current one.
 
 ### Installer (Linux/MacOS/WSL)
