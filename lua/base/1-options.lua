@@ -7,7 +7,7 @@
 _G.base = {}
 
 -- Theme
-base.default_colorscheme = "tokyonight-night"
+base.default_colorscheme = "astrodark"
 
 -- Options --------------------------------------------------------------------
 vim.opt.breakindent = true -- Wrap indent to match  line start.
@@ -40,7 +40,7 @@ vim.opt.smartcase = true -- Case sensitivie searching.
 vim.opt.smartindent = false -- Smarter autoindentation.
 vim.opt.splitbelow = true -- Splitting a new window below the current one.
 vim.opt.splitright = true -- Splitting a new window at the right of the current one.
-vim.opt.tabstop = 2 -- Number of space in a tab.
+vim.opt.tabstop = 4 -- Number of space in a tab.
 
 vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI.
 vim.opt.timeoutlen = 500 -- Shorten key timeout length a little bit for which-key.
@@ -66,7 +66,8 @@ vim.opt.backspace:append { "nostop" } -- Don't stop backspace at insert.
 vim.opt.diffopt:append { "algorithm:histogram", "linematch:60" } -- Enable linematch diff algorithm
 
 local is_android = vim.fn.isdirectory('/data') == 1
-if is_android then vim.opt.mouse = "v" else vim.opt.mouse = "a" end -- Enable scroll for android
+-- if is_android then vim.opt.mouse = "v" else vim.opt.mouse = "a" end -- Enable scroll for android
+if is_android then vim.opt.mouse = "v" else vim.opt.mouse = "" end --  Enable scroll for android and disable mouse for desktop
 
 -- Globals --------------------------------------------------------------------
 vim.g.mapleader = " " -- Set leader key.

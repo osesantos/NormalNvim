@@ -97,13 +97,13 @@ return {
       require("luasnip").filetype_extend("lua", { "luadoc" })
       require("luasnip").filetype_extend("python", { "pydoc" })
       require("luasnip").filetype_extend("rust", { "rustdoc" })
-      require("luasnip").filetype_extend("cs", { "csharpdoc" })
-      require("luasnip").filetype_extend("java", { "javadoc" })
-      require("luasnip").filetype_extend("c", { "cdoc" })
-      require("luasnip").filetype_extend("cpp", { "cppdoc" })
-      require("luasnip").filetype_extend("php", { "phpdoc" })
-      require("luasnip").filetype_extend("kotlin", { "kdoc" })
-      require("luasnip").filetype_extend("ruby", { "rdoc" })
+      -- require("luasnip").filetype_extend("cs", { "csharpdoc" })
+      -- require("luasnip").filetype_extend("java", { "javadoc" })
+      -- require("luasnip").filetype_extend("c", { "cdoc" })
+      -- require("luasnip").filetype_extend("cpp", { "cppdoc" })
+      -- require("luasnip").filetype_extend("php", { "phpdoc" })
+      -- require("luasnip").filetype_extend("kotlin", { "kdoc" })
+      -- require("luasnip").filetype_extend("ruby", { "rdoc" })
       require("luasnip").filetype_extend("sh", { "shelldoc" })
     end,
   },
@@ -352,10 +352,10 @@ return {
   --  https://github.com/github/copilot.vim
   --  As alternative to chatgpt, you can use copilot uncommenting this.
   --  Then you must run :Copilot setup
-  -- {
-  --   "github/copilot.vim",
-  --   event = "User BaseFile"
-  -- },
+  {
+    "github/copilot.vim",
+    event = "User BaseFile"
+  },
   -- copilot-cmp
   -- https://github.com/zbirenbaum/copilot-cmp
   -- {
@@ -451,27 +451,27 @@ return {
       local dap = require("dap")
 
       -- C#
-      dap.adapters.coreclr = {
-        type = 'executable',
-        command = vim.fn.stdpath('data') .. '/mason/bin/netcoredbg',
-        args = { '--interpreter=vscode' }
-      }
-      dap.configurations.cs = {
-        {
-          type = "coreclr",
-          name = "launch - netcoredbg",
-          request = "launch",
-          program = function() -- Ask the user what executable wants to debug
-            return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Program.exe', 'file')
-          end,
-        },
-      }
+      -- dap.adapters.coreclr = {
+      --   type = 'executable',
+      --   command = vim.fn.stdpath('data') .. '/mason/bin/netcoredbg',
+      --   args = { '--interpreter=vscode' }
+      -- }
+      -- dap.configurations.cs = {
+      --   {
+      --     type = "coreclr",
+      --     name = "launch - netcoredbg",
+      --     request = "launch",
+      --     program = function() -- Ask the user what executable wants to debug
+      --       return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Program.exe', 'file')
+      --     end,
+      --   },
+      -- }
 
       -- F#
-      dap.configurations.fsharp = dap.configurations.cs
+      -- dap.configurations.fsharp = dap.configurations.cs
 
       -- Visual basic dotnet
-      dap.configurations.vb = dap.configurations.cs
+      -- dap.configurations.vb = dap.configurations.cs
 
       -- Java
       -- Note: The java debugger jdtls is automatically spawned and configured
@@ -531,7 +531,7 @@ return {
       }
 
       -- C++
-      dap.configurations.cpp = dap.configurations.c
+      -- dap.configurations.cpp = dap.configurations.c
 
       -- Rust
       dap.configurations.rust = {
@@ -596,53 +596,53 @@ return {
       }
 
       -- Dart / Flutter
-      dap.adapters.dart = {
-        type = 'executable',
-        command = vim.fn.stdpath('data') .. '/mason/bin/dart-debug-adapter',
-        args = { 'dart' }
-      }
-      dap.adapters.flutter = {
-        type = 'executable',
-        command = vim.fn.stdpath('data') .. '/mason/bin/dart-debug-adapter',
-        args = { 'flutter' }
-      }
-      dap.configurations.dart = {
-        {
-          type = "dart",
-          request = "launch",
-          name = "Launch dart",
-          dartSdkPath = "/opt/flutter/bin/cache/dart-sdk/", -- ensure this is correct
-          flutterSdkPath = "/opt/flutter",                  -- ensure this is correct
-          program = "${workspaceFolder}/lib/main.dart",     -- ensure this is correct
-          cwd = "${workspaceFolder}",
-        },
-        {
-          type = "flutter",
-          request = "launch",
-          name = "Launch flutter",
-          dartSdkPath = "/opt/flutter/bin/cache/dart-sdk/", -- ensure this is correct
-          flutterSdkPath = "/opt/flutter",                  -- ensure this is correct
-          program = "${workspaceFolder}/lib/main.dart",     -- ensure this is correct
-          cwd = "${workspaceFolder}",
-        }
-      }
+      -- dap.adapters.dart = {
+      --   type = 'executable',
+      --   command = vim.fn.stdpath('data') .. '/mason/bin/dart-debug-adapter',
+      --   args = { 'dart' }
+      -- }
+      -- dap.adapters.flutter = {
+      --   type = 'executable',
+      --   command = vim.fn.stdpath('data') .. '/mason/bin/dart-debug-adapter',
+      --   args = { 'flutter' }
+      -- }
+      -- dap.configurations.dart = {
+      --   {
+      --     type = "dart",
+      --     request = "launch",
+      --     name = "Launch dart",
+      --     dartSdkPath = "/opt/flutter/bin/cache/dart-sdk/", -- ensure this is correct
+      --     flutterSdkPath = "/opt/flutter",                  -- ensure this is correct
+      --     program = "${workspaceFolder}/lib/main.dart",     -- ensure this is correct
+      --     cwd = "${workspaceFolder}",
+      --   },
+      --   {
+      --     type = "flutter",
+      --     request = "launch",
+      --     name = "Launch flutter",
+      --     dartSdkPath = "/opt/flutter/bin/cache/dart-sdk/", -- ensure this is correct
+      --     flutterSdkPath = "/opt/flutter",                  -- ensure this is correct
+      --     program = "${workspaceFolder}/lib/main.dart",     -- ensure this is correct
+      --     cwd = "${workspaceFolder}",
+      --   }
+      -- }
 
       -- Kotlin
       -- Kotlin projects have very weak project structure conventions.
       -- You must manually specify what the project root and main class are.
-      dap.adapters.kotlin = {
-        type = 'executable',
-        command = vim.fn.stdpath('data') .. '/mason/bin/kotlin-debug-adapter',
-      }
-      dap.configurations.kotlin = {
-        {
-          type = 'kotlin',
-          request = 'launch',
-          name = 'Launch kotlin program',
-          projectRoot = "${workspaceFolder}/app",     -- ensure this is correct
-          mainClass = "AppKt",                        -- ensure this is correct
-        },
-      }
+      -- dap.adapters.kotlin = {
+      --   type = 'executable',
+      --   command = vim.fn.stdpath('data') .. '/mason/bin/kotlin-debug-adapter',
+      -- }
+      -- dap.configurations.kotlin = {
+      --   {
+      --     type = 'kotlin',
+      --     request = 'launch',
+      --     name = 'Launch kotlin program',
+      --     projectRoot = "${workspaceFolder}/app",     -- ensure this is correct
+      --     mainClass = "AppKt",                        -- ensure this is correct
+      --   },
+      -- }
 
       -- Javascript / Typescript (firefox)
       dap.adapters.firefox = {
@@ -692,18 +692,18 @@ return {
       -- dap.configurations.typescriptreact = dap.configurations.typescript
 
       -- PHP
-      dap.adapters.php = {
-        type = 'executable',
-        command = vim.fn.stdpath("data") .. '/mason/bin/php-debug-adapter',
-      }
-      dap.configurations.php = {
-        {
-          type = 'php',
-          request = 'launch',
-          name = 'Listen for Xdebug',
-          port = 9000
-        }
-      }
+      -- dap.adapters.php = {
+      --   type = 'executable',
+      --   command = vim.fn.stdpath("data") .. '/mason/bin/php-debug-adapter',
+      -- }
+      -- dap.configurations.php = {
+      --   {
+      --     type = 'php',
+      --     request = 'launch',
+      --     name = 'Listen for Xdebug',
+      --     port = 9000
+      --   }
+      -- }
 
       -- Shell
       dap.adapters.bashdb = {
@@ -734,26 +734,26 @@ return {
       }
 
       -- Elixir
-      dap.adapters.mix_task = {
-        type = 'executable',
-        command = vim.fn.stdpath("data") .. '/mason/bin/elixir-ls-debugger',
-        args = {}
-      }
-      dap.configurations.elixir = {
-        {
-          type = "mix_task",
-          name = "mix test",
-          task = 'test',
-          taskArgs = { "--trace" },
-          request = "launch",
-          startApps = true, -- for Phoenix projects
-          projectDir = "${workspaceFolder}",
-          requireFiles = {
-            "test/**/test_helper.exs",
-            "test/**/*_test.exs"
-          }
-        },
-      }
+      -- dap.adapters.mix_task = {
+      --   type = 'executable',
+      --   command = vim.fn.stdpath("data") .. '/mason/bin/elixir-ls-debugger',
+      --   args = {}
+      -- }
+      -- dap.configurations.elixir = {
+      --   {
+      --     type = "mix_task",
+      --     name = "mix test",
+      --     task = 'test',
+      --     taskArgs = { "--trace" },
+      --     request = "launch",
+      --     startApps = true, -- for Phoenix projects
+      --     projectDir = "${workspaceFolder}",
+      --     requireFiles = {
+      --       "test/**/test_helper.exs",
+      --       "test/**/*_test.exs"
+      --     }
+      --   },
+      -- }
     end, -- of dap config
     dependencies = {
       "rcarriga/nvim-dap-ui",
@@ -829,31 +829,31 @@ return {
     "nvim-neotest/neotest",
     cmd = { "Neotest" },
     dependencies = {
-      "sidlatau/neotest-dart",
-      "Issafalcon/neotest-dotnet",
-      "jfpedroza/neotest-elixir",
+      -- "sidlatau/neotest-dart",
+      -- "Issafalcon/neotest-dotnet",
+      -- "jfpedroza/neotest-elixir",
       "nvim-neotest/neotest-go",
-      "rcasia/neotest-java",
+      -- "rcasia/neotest-java",
       "nvim-neotest/neotest-jest",
-      "olimorris/neotest-phpunit",
+      -- "olimorris/neotest-phpunit",
       "nvim-neotest/neotest-python",
       "rouge8/neotest-rust",
-      "lawrence-laz/neotest-zig",
+      -- "lawrence-laz/neotest-zig",
     },
     opts = function()
       return {
         -- your neotest config here
         adapters = {
-          require("neotest-dart"),
-          require("neotest-dotnet"),
-          require("neotest-elixir"),
+          -- require("neotest-dart"),
+          -- require("neotest-dotnet"),
+          -- require("neotest-elixir"),
           require("neotest-go"),
-          require("neotest-java"),
+          -- require("neotest-java"),
           require("neotest-jest"),
-          require("neotest-phpunit"),
+          -- require("neotest-phpunit"),
           require("neotest-python"),
           require("neotest-rust"),
-          require("neotest-zig"),
+          -- require("neotest-zig"),
         },
       }
     end,
