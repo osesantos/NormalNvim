@@ -52,6 +52,22 @@ return {
     },
   },
 
+  -- kanagawa [theme]
+  -- https://github.com/rebelot/kanagawa.nvim
+  -- A theme inspired by the colors of the Kanagawa wave.
+  {
+    "rebelot/kanagawa.nvim",
+    event = "User LoadColorSchemes",
+    opts = {
+      colors = {  -- add/modify theme and palette colors
+        palette = {},
+        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      },
+      transparent = false,
+      dim_inactive = true,
+    },
+  },
+
   --  alpha-nvim [greeter]
   --  https://github.com/goolord/alpha-nvim
   {

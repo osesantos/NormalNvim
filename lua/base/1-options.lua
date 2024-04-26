@@ -7,7 +7,7 @@
 _G.base = {}
 
 -- Theme
-base.default_colorscheme = "astrodark"
+base.default_colorscheme = "kanagawa"
 
 -- Options --------------------------------------------------------------------
 vim.opt.breakindent = true -- Wrap indent to match  line start.
