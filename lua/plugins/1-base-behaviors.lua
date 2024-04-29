@@ -82,8 +82,8 @@ return {
       exclude_dirs = {
         "~/"
       },
-      silent_chdir = true,
-      manual_mode = false,
+      silent_chdir = false,
+      manual_mode = true,
 
       -- Don't auto-chdir for specific filetypes.
       exclude_filetype_chdir = { "", "OverseerList", "alpha" },
@@ -466,7 +466,7 @@ return {
           end,
         },
         window = {
-          width = 30,
+          width = 45,
           mappings = {
             ["<space>"] = false, -- disable space until we figure out which-key disabling
             ["<S-CR>"] = "system_open",
