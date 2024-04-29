@@ -199,7 +199,7 @@ return {
   -- every time Neovim trigger the event FileType.
   {
     "williamboman/mason-lspconfig.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
+    dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
     event = "User BaseFile",
     opts = function(_, opts)
       if not opts.handlers then opts.handlers = {} end
