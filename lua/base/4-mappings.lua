@@ -1632,6 +1632,16 @@ function M.lsp_mappings(client, bufnr)
     end
   end
 
+  -- extra - custom lsp mappings ----------------------------------------------
+
+  lsp_mappings.n["<leader>lx"] = {
+    function()
+      vim.cmd("vsplit")
+      vim.cmd("term pnpm nx affected --targets lint --configuration ci --fix")
+    end,
+    desc = "Fix all linting issues",
+  }
+
   return lsp_mappings
 end
 
