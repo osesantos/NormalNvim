@@ -886,7 +886,11 @@ if is_available "telescope.nvim" then
   -- Enabled by me - Start
   maps.n["<leader>ff"] = {
     function()
-      require("telescope.builtin").find_files { hidden = true, no_ignore = true }
+      require("telescope.builtin").find_files {
+        additional_args = function(args)
+          return vim.list_extend(args, { "--hidden", "--no-ignore", "--glob", "!**/.git/*" })
+        end,
+      }
     end,
     desc = "Find all files",
   }
@@ -938,7 +942,7 @@ if is_available "telescope.nvim" then
     function()
       require("telescope.builtin").live_grep {
         additional_args = function(args)
-          return vim.list_extend(args, { "--hidden", "--no-ignore" })
+          return vim.list_extend(args, { "--hidden", "--no-ignore", "--glob", "!**/.git/*" })
         end,
       }
     end,
