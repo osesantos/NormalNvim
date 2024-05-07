@@ -888,7 +888,8 @@ if is_available "telescope.nvim" then
     function()
       require("telescope.builtin").find_files {
         additional_args = function(args)
-          return vim.list_extend(args, { "--hidden", "--no-ignore", "--glob", "!**/.git/*" })
+          return vim.list_extend(args,
+            { "--hidden", "--no-ignore", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" })
         end,
       }
     end,
@@ -942,7 +943,8 @@ if is_available "telescope.nvim" then
     function()
       require("telescope.builtin").live_grep {
         additional_args = function(args)
-          return vim.list_extend(args, { "--hidden", "--no-ignore", "--glob", "!**/.git/*" })
+          return vim.list_extend(args,
+            { "--hidden", "--no-ignore", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" })
         end,
       }
     end,
