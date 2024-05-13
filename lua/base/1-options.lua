@@ -63,6 +63,9 @@ vim.opt.sidescrolloff = 8                                        -- Same but for
 vim.opt.selection =
 "old"                                                            -- Don't select the newline symbol when using <End> on visual mode.
 
+vim.opt.spelllang = "en_us"                                      -- Set spell language.
+vim.opt.spell = true                                             -- Enable spell checking.
+
 vim.opt.viewoptions:remove "curdir"                              -- Disable saving current directory with views.
 vim.opt.shortmess:append { s = true, I = true }                  -- Disable startup message.
 vim.opt.backspace:append { "nostop" }                            -- Don't stop backspace at insert.
