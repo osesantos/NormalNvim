@@ -75,7 +75,7 @@ local icons = {
   p = { desc = get_icon("Package", 1, true) .. "Packages" },
   l = { desc = get_icon("ActiveLSP", 1, true) .. "LSP" },
   u = { desc = get_icon("Window", 1, true) .. "UI" },
-  b = { desc = get_icon("Tab", 1, true) .. "Buffers" },
+  b = { desc = get_icon("Tab", 1, true) .. "Buffers (Tabs)" },
   bs = { desc = get_icon("Sort", 1, true) .. "Sort Buffers" },
   c = { desc = get_icon("Run", 1, true) .. "Compiler" },
   d = { desc = get_icon("Debugger", 1, true) .. "Debugger" },
@@ -889,7 +889,7 @@ if is_available "telescope.nvim" then
       require("telescope.builtin").find_files {
         additional_args = function(args)
           return vim.list_extend(args,
-            { "--hidden", "--no-ignore", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" })
+            { "--hidden", "--no-ignore", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*", "--glob", "!**/dist/*" })
         end,
       }
     end,
@@ -944,7 +944,7 @@ if is_available "telescope.nvim" then
       require("telescope.builtin").live_grep {
         additional_args = function(args)
           return vim.list_extend(args,
-            { "--hidden", "--no-ignore", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" })
+            { "--hidden", "--no-ignore", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*", "--glob", "!**/dist/*" })
         end,
       }
     end,
@@ -1540,7 +1540,7 @@ function M.lsp_mappings(client, bufnr)
   if client.supports_method "textDocument/implementation" then
     lsp_mappings.n["gI"] = {
       function() vim.lsp.buf.implementation() end,
-      desc = "Implementation of current symbol",
+      desc = "Show Implementation of current symbol",
     }
   end
 
@@ -1563,7 +1563,7 @@ function M.lsp_mappings(client, bufnr)
     }
     lsp_mappings.n["gr"] = {
       function() vim.lsp.buf.references() end,
-      desc = "References of current symbol",
+      desc = "Show References of current symbol",
     }
   end
 
